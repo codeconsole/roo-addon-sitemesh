@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<decorators defaultdir="/WEB-INF/decorators">
+    <decorator name="default" page="default.jspx">
+        <pattern>/*</pattern>
+    </decorator>
+    <decorator name="public" page="public.jspx" />
+</decorators>

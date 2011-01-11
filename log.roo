@@ -1,0 +1,4 @@
+// Spring Roo 1.1.1.RELEASE [rev 156ccd6] log opened at 2011-01-11 12:34:51
+addon create simple --topLevelPackage org.codeconsole.roo.addon.sitemesh --projectName sitemesh
+quit
+// Spring Roo 1.1.1.RELEASE [rev 156ccd6] log closed at 2011-01-11 12:35:10

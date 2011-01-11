@@ -1,0 +1,18 @@
+<html xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator">
+	<jsp:directive.page contentType="text/html; charset=UTF-8" />
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><decorator:title default="Spring ROO" /></title>
+        <decorator:head />
+        <util:load-scripts />
+    </head>
+  	<body class="tundra spring">
+   		<div id="wrapper">
+   			<jsp:include page="/WEB-INF/views/header.jspx" />
+		    <div id="main">
+	    		<decorator:body />
+	    		<jsp:include page="/WEB-INF/views/footer.jspx" />
+		    </div>
+		</div>
+	</body>
+</html>
