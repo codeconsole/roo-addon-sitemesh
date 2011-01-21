@@ -3,3 +3,5 @@ example
 example/pom.xml
 example/src
 example/target
+.svn
+.svnIgnore

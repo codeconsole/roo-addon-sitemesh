@@ -4,7 +4,7 @@
   <groupId>org.codeconsole.roo</groupId>
   <artifactId>org.codeconsole.roo.addon.sitemesh</artifactId>
   <packaging>bundle</packaging>
-  <version>0.1.0</version>
+  <version>0.1.1-SNAPSHOT</version>
   <name>Spring Roo - Addon - Sitemesh</name>
   <organization>
     <name>CodeConsole.org</name>
@@ -113,10 +113,10 @@
 		<type>bundle</type>
 	</dependency>	  
   </dependencies>
-  <scm>
-    <connection>scm:svn:https://${google.code.project.name}.googlecode.com/svn/trunk</connection>
-    <developerConnection>scm:svn:https://${google.code.project.name}.googlecode.com/svn/trunk</developerConnection>
-    <url>http://code.google.com/p/${google.code.project.name}/source/browse</url>
+ <scm>
+    <connection>scm:git:ssh://git@github.com/codeconsole/roo-addon-sitemesh.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/codeconsole/roo-addon-sitemesh.git</developerConnection>
+    <url>http://code.google.com/p/codeconsole/source/browse/tags/org.codeconsole.roo.addon.sitemesh-0.1.0.RELEASE</url>
   </scm>
   <distributionManagement>
     <repository>
