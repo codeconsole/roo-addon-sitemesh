@@ -4,7 +4,7 @@
   <groupId>org.codeconsole.roo</groupId>
   <artifactId>org.codeconsole.roo.addon.sitemesh</artifactId>
   <packaging>bundle</packaging>
-  <version>0.1.1.RELEASE</version>
+  <version>0.1.2-SNAPSHOT</version>
   <name>Spring Roo - Addon - Sitemesh</name>
   <organization>
     <name>CodeConsole.org</name>
