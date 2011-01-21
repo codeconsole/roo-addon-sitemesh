@@ -120,7 +120,7 @@
   </scm>
   <distributionManagement>
     <repository>
-      <id>Google Code</id>
+      <id>GoogleCode</id>
       <url>dav:https://${google.code.project.name}.googlecode.com/svn/repo</url>
     </repository>
   </distributionManagement>
