@@ -101,9 +101,9 @@ public class SitemeshOperationsImpl implements SitemeshOperations{
 			if (fileManager.exists(webXml)) {
 				MutableFile mutableWebXml = fileManager.updateFile(webXml);
 				Document webXmlDoc = XmlUtils.getDocumentBuilder().parse(mutableWebXml.getInputStream());
-				WebXmlUtils.addFilterAtPosition(WebXmlUtils.FilterPosition.AFTER, WebMvcOperations.HTTP_METHOD_FILTER_NAME, null, SitemeshOperations.SITEMESH_FILTER_NAME, "com.opensymphony.module.sitemesh.filter.PageFilter", "/*", webXmlDoc, null, null, Arrays.asList(WebXmlUtils.Dispatcher.REQUEST, WebXmlUtils.Dispatcher.ERROR));				
 				WebXmlUtils.addFilterAtPosition(WebXmlUtils.FilterPosition.AFTER, WebMvcOperations.HTTP_METHOD_FILTER_NAME, null, "clearSiteMeshAppliedOnce", "org.codeconsole.sitemesh.filter.ClearSitemeshAppliedOnceFilter", "/*", webXmlDoc, "Needed for Error pages. Sets decorator for all error pages by setting request attribute decorator to public.",
 						Arrays.asList(new WebXmlUtils.WebXmlParam("decorator-attribute", "public")), Arrays.asList(WebXmlUtils.Dispatcher.ERROR));
+				WebXmlUtils.addFilterAtPosition(WebXmlUtils.FilterPosition.AFTER, WebMvcOperations.HTTP_METHOD_FILTER_NAME, null, SitemeshOperations.SITEMESH_FILTER_NAME, "com.opensymphony.module.sitemesh.filter.PageFilter", "/*", webXmlDoc, null, null, Arrays.asList(WebXmlUtils.Dispatcher.REQUEST, WebXmlUtils.Dispatcher.ERROR));
 				XmlUtils.writeXml(mutableWebXml.getOutputStream(), webXmlDoc);
 			} else {
 				throw new IllegalStateException("Could not acquire " + webXml);
@@ -152,10 +152,6 @@ public class SitemeshOperationsImpl implements SitemeshOperations{
 		List<Element> sitemeshDependencies = XmlUtils.findElements("/configuration/sitemesh/dependencies/dependency", configuration);
 		for (Element dependencyElement : sitemeshDependencies) {
 			projectOperations.dependencyUpdate(new Dependency(dependencyElement));
-		}
-		List<Element> sitemeshRepositories = XmlUtils.findElements("/configuration/sitemesh/repositories/repository", configuration);
-		for (Element respositoryElement : sitemeshRepositories) {
-			projectOperations.addRepository(new Repository(respositoryElement));
 		}
 	}
 }

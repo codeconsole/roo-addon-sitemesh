@@ -116,7 +116,7 @@
  <scm>
     <connection>scm:git:ssh://git@github.com/codeconsole/roo-addon-sitemesh.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/codeconsole/roo-addon-sitemesh.git</developerConnection>
-    <url>http://code.google.com/p/codeconsole/source/browse/tags/org.codeconsole.roo.addon.sitemesh-0.1.0.RELEASE</url>
+    <url>https://github.com/codeconsole/roo-addon-sitemesh</url>
   </scm>
   <distributionManagement>
     <repository>

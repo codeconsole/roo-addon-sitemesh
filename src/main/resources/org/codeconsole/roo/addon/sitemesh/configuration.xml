@@ -5,15 +5,8 @@
 			<dependency>
 				<groupId>org.codeconsole.sitemesh</groupId>
 				<artifactId>sitemesh-support</artifactId>
-				<version>0.1.0</version>
+				<version>0.1.2.RELEASE</version>
 			</dependency>		
-		</dependencies>
-		<repositories>
-			<repository>
-				<id>codeconsole-repository</id>
-				<name>CodeConsole Repository</name>
-				<url>http://codeconsole.googlecode.com/svn/repo</url>
-			</repository>
-		</repositories>		
+		</dependencies>	
 	</sitemesh>
 </configuration>
