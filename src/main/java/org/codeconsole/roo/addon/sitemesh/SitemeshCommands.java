@@ -25,7 +25,7 @@ public class SitemeshCommands implements CommandMarker { //all command types mus
 	/**
 	 * Get hold of a JDK Logger
 	 */
-	private Logger log = Logger.getLogger(getClass().getName());
+	private Logger logger = Logger.getLogger(getClass().getName());
 
 	/**
 	 * Get a reference to the SitemeshOperations from the underlying OSGi container
@@ -33,11 +33,23 @@ public class SitemeshCommands implements CommandMarker { //all command types mus
 	@Reference private SitemeshOperations operations; 
 	
 	@CliAvailabilityIndicator("sitemesh setup") public boolean isInstallSitemeshAvailable() {
-		return operations.isInstallSitemeshAvailable();
+		return operations.isInstallSitemeshAvailable(false);
 	}
 
 	@CliCommand(value = "sitemesh setup", help = "Install Sitemesh into your project.") 
 	public void installSitemesh() {
 		operations.installSitemesh();
 	}
+	
+	@CliAvailabilityIndicator("sitemesh info") public boolean isSitemeshInfoAvailable() {
+		return true;
+	}
+
+	@CliCommand(value = "sitemesh info", help = "Determines if SiteMesh can be installed into your project.") 
+	public void sitemeshInfo() {
+		logger.info("Determining SiteMesh Installation Requriements.");
+		if (operations.isInstallSitemeshAvailable(true)) {
+			logger.info("You are now able to install SiteMesh, run 'sitemesh setup' to install.");
+		}
+	}	
 }

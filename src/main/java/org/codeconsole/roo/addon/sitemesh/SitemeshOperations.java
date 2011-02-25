@@ -14,7 +14,7 @@ public interface SitemeshOperations {
 	 * 
 	 * @return true if it should be available, otherwise false
 	 */	
-	boolean isInstallSitemeshAvailable();
+	boolean isInstallSitemeshAvailable(boolean debug);
 	
 	/**
 	 * Install sitemesh used for MVC scaffolded apps into the target project.

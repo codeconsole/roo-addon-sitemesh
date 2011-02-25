@@ -59,19 +59,31 @@ public class SitemeshOperationsImpl implements SitemeshOperations{
 	@Reference private ProjectOperations projectOperations;
 
 	/** {@inheritDoc} */
-	public boolean isInstallSitemeshAvailable() {
+	public boolean isInstallSitemeshAvailable(boolean debug) {
 		ProjectMetadata project = (ProjectMetadata) metadataService.get(ProjectMetadata.getProjectIdentifier());
 		if (project == null) {
+			if (debug) {
+				logger.info("Please configure a project first. Run 'project'.");
+			}
 			return false;
 		}
 
 		// Do not permit installation unless they have a web project
 		if (!fileManager.exists(pathResolver.getIdentifier(Path.SRC_MAIN_WEBAPP, "/WEB-INF/web.xml"))) {
+			if (debug) {
+				logger.info("Please set up a web project. No web.xml has been found. The 'controller' command will do this for you.");
+			}
 			return false;
 		}
 
 		// Only permit installation if they don't already have some version of Sitemesh installed
-		return project.getDependenciesExcludingVersion(new Dependency("opensymphony", "sitemesh", "2.4.2")).size() == 0;
+		if (!(project.getDependenciesExcludingVersion(new Dependency("opensymphony", "sitemesh", "2.4.2")).size() == 0)) {
+			if (debug) {
+				logger.info("SiteMesh has already been installed.");
+			}
+			return false;
+		}
+		return true;
 	}
 	
 	/** {@inheritDoc} */
@@ -151,7 +163,7 @@ public class SitemeshOperationsImpl implements SitemeshOperations{
 	private void updateDependencies(Element configuration) {
 		List<Element> sitemeshDependencies = XmlUtils.findElements("/configuration/sitemesh/dependencies/dependency", configuration);
 		for (Element dependencyElement : sitemeshDependencies) {
-			projectOperations.dependencyUpdate(new Dependency(dependencyElement));
+			projectOperations.addDependency(new Dependency(dependencyElement));
 		}
 	}
 }

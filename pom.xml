@@ -19,7 +19,7 @@
   <description>A Sitemesh 2 Roo Add on</description>
   <url>http://www.codeconsole.org</url>
   <properties>
-    <roo.version>1.1.1.RELEASE</roo.version>
+    <roo.version>1.1.2.RELEASE</roo.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <google.code.project.name>codeconsole</google.code.project.name>
     <repo.folder>org/codeconsole/roo</repo.folder>
